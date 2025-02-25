@@ -36,7 +36,7 @@ except Exception as e:
     raise RuntimeError("Dataset loading failed. Please check the file path.")
 
 #  Initialize LLM (Groq's Llama3-8b-8192)
-llm = ChatGroq(model_name="llama3-8b-8192", temperature=0)
+llm = ChatGroq(model_name="mistral-7b", temperature=0)
 
 #  Create CSV Agent for querying Titanic dataset
 agent = create_csv_agent(llm, DATASET_PATH, verbose=True, allow_dangerous_code=True)
