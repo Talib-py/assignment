@@ -45,6 +45,11 @@ agent = create_csv_agent(llm, DATASET_PATH, verbose=True, allow_dangerous_code=T
 class ChatRequest(BaseModel):
     message: str
 
+# Root Route
+@app.get("/")
+async def home():
+    return {"message": "Titanic Chatbot API is running!"}
+
 #  Chatbot API Endpoint
 @app.post("/chat/")
 async def chat(input: ChatRequest):
