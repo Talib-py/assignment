@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-# FastAPI Backend URL
+# ✅ FastAPI Backend URL
 API_URL = "https://assignment-499w.onrender.com//chat/"
 
 st.title("Titanic AI Chatbot")
@@ -9,12 +9,12 @@ st.title("Titanic AI Chatbot")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-#  Display chat history
+# ✅ Display chat history
 for message in st.session_state.messages:
     role = "🤖" if message["role"] == "assistant" else "👤"
     st.markdown(f"**{role}:** {message['content']}")
 
-# User Input
+# ✅ User Input
 user_input = st.text_input("You:")
 
 if st.button("Send") and user_input:
