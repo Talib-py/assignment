@@ -6,7 +6,8 @@ from pydantic import BaseModel
 from langchain_experimental.agents import create_csv_agent
 from langchain_groq import ChatGroq
 from fastapi.middleware.cors import CORSMiddleware
-
+import matplotlib
+matplotlib.use("Agg")  # Use non-GUI backend
 # 🌟 Setup Logging for Better Debugging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
