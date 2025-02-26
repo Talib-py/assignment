@@ -6,8 +6,7 @@ from pydantic import BaseModel
 from langchain_experimental.agents import create_csv_agent
 from langchain_groq import ChatGroq
 from fastapi.middleware.cors import CORSMiddleware
-import matplotlib
-matplotlib.use("Agg")  # Use non-GUI backend
+
 # 🌟 Setup Logging for Better Debugging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -45,11 +44,6 @@ agent = create_csv_agent(llm, DATASET_PATH, verbose=True, allow_dangerous_code=T
 # 📝 Define API Request Model
 class ChatRequest(BaseModel):
     message: str
-
-# Root Route
-@app.get("/")
-async def home():
-    return {"message": "Titanic Chatbot API is running!"}
 
 # 💬 Chatbot API Endpoint
 @app.post("/chat/")
